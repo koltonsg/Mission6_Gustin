@@ -10,7 +10,7 @@ namespace Mission6_KoltonGustin.Controllers
     {
         private MovieContext _context;
 
-        public HomeController(MovieContext context)
+        public HomeController(MovieContext context) // initialize the context
         {
             _context = context;
         }
@@ -20,23 +20,23 @@ namespace Mission6_KoltonGustin.Controllers
             return View();
         }
 
-        public IActionResult GetToKnowJoel()
+        public IActionResult GetToKnowJoel() // get to know joel page
         {
             return View();
         }
         
-        public IActionResult MovieForm()
+        public IActionResult MovieForm() // movie form page
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost] // code for post request (submitting the form)
         public IActionResult MovieForm(Movie response)
         {
             _context.Movies.Add(response);
             _context.SaveChanges();
 
-            return View("confirmation", response);
+            return View("confirmation", response); // take the user to the confirmation page
         }
 
     }

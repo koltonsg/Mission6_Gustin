@@ -2,7 +2,7 @@
 
 namespace Mission6_KoltonGustin.Models
 {
-    public class Movie
+    public class Movie // table and columns in the database
     {
         [Key]
         public int MovieId { get; set; }
