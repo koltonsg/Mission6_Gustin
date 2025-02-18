@@ -12,7 +12,8 @@ namespace Mission6_KoltonGustin.Models
         [Required]
         public string Title { get; set; }
 
-        [Required] 
+        [Required]
+        [Range (1888,2025)] // rage of movies allowed
         public int Year { get; set; }
         public string? Director { get; set; }
         public string? Rating { get; set; }

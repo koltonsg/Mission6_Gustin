@@ -9,6 +9,6 @@ namespace Mission6_KoltonGustin.Models
         {
         }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; } // added the Categories table to the context
     }
 }

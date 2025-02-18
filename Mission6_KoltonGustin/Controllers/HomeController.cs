@@ -46,5 +46,41 @@ namespace Mission6_KoltonGustin.Controllers
 
             return View(movies);
         }
+
+        public IActionResult Edit(int id)
+        {
+            var recordToEdit = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            ViewBag.Categories = _context.Categories.ToList();
+            return View("MovieForm", recordToEdit);
+
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie UpdatedInfo)
+        {
+            _context.Update(UpdatedInfo);
+            _context.SaveChanges();
+
+            return RedirectToAction("MovieList");
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var recordToDelete = _context.Movies
+                .Single(x => x.MovieId == id);
+
+            return View(recordToDelete);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Movie recordToDelete)
+        {
+            _context.Movies.Remove(recordToDelete);
+            _context.SaveChanges();
+            return RedirectToAction("MovieList");
+        }
     }
 }

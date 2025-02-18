@@ -2,6 +2,7 @@
 
 <h1>Enter Movie: </h1>
 <form method="post">
+    <input type="hidden" asp-for="MovieId" />
 
     <label asp-for="CategoryId">Category: </label>
     <select required asp-for="CategoryId">
@@ -51,6 +52,12 @@
     <input asp-for="LentTo" />
 
     <br />
+
+    <label asp-for="CopiedToPlex">Copied to Plex?: </label>
+    <select required asp-for="CopiedToPlex">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
 
     <label asp-for="Notes">Notes: </label>
     <textarea asp-for="Notes" maxlength="25" rows="3" cols="30"></textarea>

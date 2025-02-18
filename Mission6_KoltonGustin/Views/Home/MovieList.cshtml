@@ -15,12 +15,14 @@
 			<td>Rating</td>
 			<td>Edited</td>
 			<td>LentTo</td>
-			<td>CopiedToPlex</td>
+			<td>Copied To Plex</td>
 			<td>Notes</td>
+			<td>Actions</td>
 		</tr>
 
 	</thead>
 
+	@* Fill in the table with data from the database *@
 	@foreach (var x in Model)
 	{
 		<tbody>
@@ -33,13 +35,13 @@
 				<td>@x.LentTo</td>
 				<td>@x.CopiedToPlex</td>
 				<td>@x.Notes</td>
-
-				<td>
+			
+				<td width="145">
+					@* Edit and delete buttons *@
 					<a class="btn btn-info" asp-action="Edit" asp-controller="Home" asp-route-id="@x.MovieId">Edit</a>
 					<a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">Delete</a>
 				</td>
 			</tr>
-
 		</tbody>
 	}
 </table>
