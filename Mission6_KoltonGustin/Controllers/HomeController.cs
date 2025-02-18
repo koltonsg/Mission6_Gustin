@@ -27,6 +27,7 @@ namespace Mission6_KoltonGustin.Controllers
         
         public IActionResult MovieForm() // movie form page
         {
+            ViewBag.Categories = _context.Categories.ToList(); // get the list of categories from the database
             return View();
         }
 
@@ -39,5 +40,11 @@ namespace Mission6_KoltonGustin.Controllers
             return View("confirmation", response); // take the user to the confirmation page
         }
 
+        public IActionResult MovieList()
+        {
+            var movies = _context.Movies.ToList();
+
+            return View(movies);
+        }
     }
 }
